@@ -1,0 +1,22 @@
+{
+  "name": "ed-node-adapter",
+  "version": "1.0.0-snapshot",
+  "description": "Node adapter for EDDB API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloscasalar/ed-node-adapter.git"
+  },
+  "keywords": [
+    "eddb"
+  ],
+  "author": "Carlos Castillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carloscasalar/ed-node-adapter/issues"
+  },
+  "homepage": "https://github.com/carloscasalar/ed-node-adapter#readme"
+}
