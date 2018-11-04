@@ -5,6 +5,9 @@ Node adapter for [EDDB API](https://eddb.io/api) v5.1.
 
     npm install ed-node-adapter --save
 
+## Adapters
+
+### Commodities
 
 
  
