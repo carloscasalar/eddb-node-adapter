@@ -10,18 +10,22 @@ const camelCasePropertyTransformer = new Transform({
       name,
       category_id: categoryId,
       average_price: averagePrice,
-      is_rare: isRare,
+      is_rare,
       max_buy_price: maxBuyPrice,
       max_sell_price: maxSellPrice,
       min_buy_price: minBuyPrice,
       min_sell_price: minSellPrice,
       buy_price_lower_average: buyPriceLowerAverage,
       sell_price_upper_average: sellPriceUpperAverage,
-      is_non_marketable: isNonMarketable,
+      is_non_marketable,
       ed_id: edId,
       category,
       ...unexpectedAttributes
     } = commodity;
+
+    const isRare = is_rare === 1;
+    const isNonMarketable = is_non_marketable === 1;
+
     done(null, {
       id,
       name,
