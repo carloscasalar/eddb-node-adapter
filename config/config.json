@@ -1,10 +1,10 @@
 {
   "eddbapi": {
     "commodities": {
-      "headers": {
-        "Accept-Encoding": "gzip, deflate, sdch"
-      },
       "url": "https://eddb.io/archive/v5/commodities.json"
     }
+  },
+  "headers": {
+    "Accept-Encoding": "gzip, deflate, sdch"
   }
 }
