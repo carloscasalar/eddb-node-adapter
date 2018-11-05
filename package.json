@@ -1,11 +1,12 @@
 {
-  "name": "ed-node-adapter",
+  "name": "eddb-node-adapter",
   "version": "1.0.0-snapshot",
   "description": "Node adapter for EDDB API",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "lint": "eslint index.js commodities/**"
+    "lint": "eslint index.js commodities/**",
+    "example::commodities": "node ./examples/commodities"
   },
   "repository": {
     "type": "git",
