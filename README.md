@@ -1,4 +1,4 @@
-# eddb node adapter
+# eddb node adapter [![CircleCI](https://circleci.com/gh/carloscasalar/eddb-node-adapter.svg?style=svg)](https://circleci.com/gh/carloscasalar/eddb-node-adapter) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4c2d34ee7c47482d90c7e22d945a960a)](https://www.codacy.com/app/castillo.st/eddb-node-adapter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=carloscasalar/eddb-node-adapter&amp;utm_campaign=Badge_Grade)
 Node adapter for [EDDB API](https://eddb.io/api) v5.1.
 
 ## Install
