@@ -5,6 +5,7 @@ const request = require('request');
 const JSONStream = require('JSONStream');
 
 const defaultConfig = require('../config/config');
+const systemTransformer = require('./systemTransformer');
 
 class PopulatedSystemsLoader {
   constructor(url = defaultConfig.eddbapi.populatedSystems.url) {
@@ -17,7 +18,8 @@ class PopulatedSystemsLoader {
     const { headers } = defaultConfig;
     return request({ url, headers })
       .pipe(unzip_stream)
-      .pipe(JSONStream.parse('*'));
+      .pipe(JSONStream.parse('*'))
+      .pipe(systemTransformer);
   }
 }
 
