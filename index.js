@@ -1,9 +1,9 @@
 'use strict';
 
 const CommoditiesLoader = require('./commodities/CommoditiesLoader');
-const PopulatedSystems = require('./systems/PopulatedSystemsLoader');
+const PopulatedSystemsLoader = require('./systems/PopulatedSystemsLoader');
 
 module.exports = {
   CommoditiesLoader,
-  PopulatedSystems
+  PopulatedSystemsLoader
 };
