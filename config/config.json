@@ -2,6 +2,9 @@
   "eddbapi": {
     "commodities": {
       "url": "https://eddb.io/archive/v5/commodities.json"
+    },
+    "populatedSystems": {
+      "url": "https://eddb.io/archive/v5/systems_populated.json"
     }
   },
   "headers": {
