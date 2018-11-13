@@ -1,11 +1,11 @@
 'use strict';
 
-const { PopulatedSystems } = require('../');
+const { PopulatedSystemsLoader } = require('../');
 
-const populatedSystems = new PopulatedSystems();
+const populatedSystemsLoader = new PopulatedSystemsLoader();
 
 const time = process.hrtime();
-const loadStream = populatedSystems.stream();
+const loadStream = populatedSystemsLoader.stream();
 
 loadStream.on('data', (system) => console.dir(system, { depth: null, colors: true }));
 loadStream.on('error', (err) => console.log('unexpected error', err));
