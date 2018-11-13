@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.3.0 ?
+* Add `PricesLoader` adapter class.
+
 ## v0.2.0 2018-11-12
 * Add `PopulatedSystemsLoader` adapter class.
 
