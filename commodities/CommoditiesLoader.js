@@ -4,7 +4,7 @@ const zlib = require('zlib');
 const request = require('request');
 const JSONStream = require('JSONStream');
 
-const camelCasePropertyTransformer = require('./camelCasePropertyTransformer');
+const commodityTransformer = require('./commodityTransformer');
 const defaultConfig = require('../config/config');
 
 class CommoditiesLoader {
@@ -19,7 +19,7 @@ class CommoditiesLoader {
     return request({ url, headers })
       .pipe(unzip_stream)
       .pipe(JSONStream.parse('*'))
-      .pipe(camelCasePropertyTransformer);
+      .pipe(commodityTransformer);
   }
 }
 

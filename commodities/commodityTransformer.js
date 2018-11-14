@@ -2,7 +2,7 @@
 
 const { Transform } = require('stream');
 
-const camelCasePropertyTransformer = new Transform({
+const commodityTransformer = new Transform({
   objectMode: true,
   transform(commodity, _, done) {
     const {
@@ -45,4 +45,4 @@ const camelCasePropertyTransformer = new Transform({
   }
 });
 
-module.exports = camelCasePropertyTransformer;
+module.exports = commodityTransformer;
