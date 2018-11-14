@@ -13,11 +13,11 @@ class CommoditiesLoader {
   }
 
   stream() {
-    const unzip_stream = zlib.createGunzip();
+    const unzipStream = zlib.createGunzip();
     const { url } = this;
     const { headers } = defaultConfig;
     return request({ url, headers })
-      .pipe(unzip_stream)
+      .pipe(unzipStream)
       .pipe(JSONStream.parse('*'))
       .pipe(commodityTransformer);
   }
