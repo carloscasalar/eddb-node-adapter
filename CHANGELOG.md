@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.3.0 ?
+## v0.3.0 2018-11-14
 * Add `PricesLoader` adapter class.
 
 ## v0.2.0 2018-11-12
