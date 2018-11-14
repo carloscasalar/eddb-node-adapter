@@ -131,4 +131,44 @@ loadStream.on('end', () => {
   console.log('Stream finished in %d seconds and %d nanoseconds', seconds, nanoseconds);
 });
 ```
- 
+
+### Prices
+
+Adapter `PricesLoader` is a class with a `stream` method that returns an stream witch emit a price in each 
+chunk. The price is an object with a _shape_ like the one exposed in EDDB but with camel case attributes and with
+integer values instead of string ones.
+
+This is a populated system object example:
+```javascript
+{ 
+  id: 8094879,
+  stationId: 116,
+  commodityId: 2,
+  supply: 0,
+  supplyBracket: 0,
+  buyPrice: 0,
+  sellPrice: 125,
+  demand: 42760,
+  demandBracket: 1,
+  collectedAt: 1542126307 
+}
+```
+
+This is an usage example:
+```javascript
+'use strict';
+
+const { PricesLoader } = require('eddb-node-adapter');
+
+const pricesLoader = new PricesLoader();
+
+const time = process.hrtime();
+const loadStream = pricesLoader.stream();
+
+loadStream.on('data', (price) => console.dir(price, { depth: null, colors: true }));
+loadStream.on('error', (err) => console.log('unexpected error', err));
+loadStream.on('end', () => {
+  const [seconds, nanoseconds] = process.hrtime(time);
+  console.log('Stream finished in %d seconds and %d nanoseconds', seconds, nanoseconds);
+});
+```

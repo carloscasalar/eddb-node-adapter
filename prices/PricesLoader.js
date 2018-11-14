@@ -5,6 +5,7 @@ const request = require('request');
 const csv = require('csv-streamify');
 
 const defaultConfig = require('../config/config');
+const priceTransformer = require('./priceTransformer');
 
 class PricesLoader {
   constructor(url = defaultConfig.eddbapi.prices.url) {
@@ -19,7 +20,8 @@ class PricesLoader {
 
     return request({ url, headers })
       .pipe(unzipStream)
-      .pipe(csvStreamer);
+      .pipe(csvStreamer)
+      .pipe(priceTransformer);
   }
 }
 
