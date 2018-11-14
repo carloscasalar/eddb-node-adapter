@@ -2,13 +2,13 @@
 
 const zlib = require('zlib');
 const request = require('request');
-const JSONStream = require('JSONStream');
+const csv = require('csv-streamify');
 
 const defaultConfig = require('../config/config');
-const systemTransformer = require('./systemTransformer');
+const priceTransformer = require('./priceTransformer');
 
-class PopulatedSystemsLoader {
-  constructor(url = defaultConfig.eddbapi.populatedSystems.url) {
+class PricesLoader {
+  constructor(url = defaultConfig.eddbapi.prices.url) {
     this.url = url;
   }
 
@@ -16,11 +16,13 @@ class PopulatedSystemsLoader {
     const unzipStream = zlib.createGunzip();
     const { url } = this;
     const { headers } = defaultConfig;
+    const csvStreamer = csv({ columns: true });
+
     return request({ url, headers })
       .pipe(unzipStream)
-      .pipe(JSONStream.parse('*'))
-      .pipe(systemTransformer);
+      .pipe(csvStreamer)
+      .pipe(priceTransformer);
   }
 }
 
-module.exports = PopulatedSystemsLoader;
+module.exports = PricesLoader;

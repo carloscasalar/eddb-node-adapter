@@ -2,9 +2,9 @@
 
 const { newDummyReadStream, newDummyWriteStream } = require('../test/dummyStreams');
 
-const camelCasePropertyTransformer = require('./camelCasePropertyTransformer');
+const commodityTransformer = require('./commodityTransformer');
 
-describe('camelCasePropertyTransformer tests', () => {
+describe('commodityTransformer tests', () => {
   test('should transform underscore attributes into camelcase ones', (done) => {
     // eslint-disable-next-line
     let transformedCommodity = {};
@@ -16,9 +16,9 @@ describe('camelCasePropertyTransformer tests', () => {
       'category_id': 16,
       'average_price': 4055,
       'is_rare': 1,
-      'max_buy_price': null,
+      'max_buy_price': 100,
       'max_sell_price': 5223,
-      'min_buy_price': null,
+      'min_buy_price': 50,
       'min_sell_price': 428,
       'buy_price_lower_average': 0,
       'sell_price_upper_average': 5038,
@@ -31,7 +31,7 @@ describe('camelCasePropertyTransformer tests', () => {
     const writeStream = newDummyWriteStream((data) => transformedCommodity = data);
 
     const fullStream = readStream
-      .pipe(camelCasePropertyTransformer)
+      .pipe(commodityTransformer)
       .pipe(writeStream);
 
     fullStream.on('end', () => {
@@ -40,9 +40,9 @@ describe('camelCasePropertyTransformer tests', () => {
         'name': 'Time Capsule',
         'averagePrice': 4055,
         'isRare': true,
-        'maxBuyPrice': null,
+        'maxBuyPrice': 100,
         'maxSellPrice': 5223,
-        'minBuyPrice': null,
+        'minBuyPrice': 50,
         'minSellPrice': 428,
         'buyPriceLowerAverage': 0,
         'sellPriceUpperAverage': 5038,

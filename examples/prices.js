@@ -1,13 +1,13 @@
 'use strict';
 
-const { PopulatedSystemsLoader } = require('../');
+const { PricesLoader } = require('../');
 
-const populatedSystemsLoader = new PopulatedSystemsLoader();
+const pricesLoader = new PricesLoader();
 
 const time = process.hrtime();
-const loadStream = populatedSystemsLoader.stream();
+const loadStream = pricesLoader.stream();
 
-loadStream.on('data', (system) => console.dir(system, { depth: null, colors: true }));
+loadStream.on('data', (price) => console.dir(price, { depth: null, colors: true }));
 loadStream.on('error', (err) => console.log('unexpected error', err));
 loadStream.on('end', () => {
   const [seconds, nanoseconds] = process.hrtime(time);

@@ -5,6 +5,9 @@
     },
     "populatedSystems": {
       "url": "https://eddb.io/archive/v5/systems_populated.json"
+    },
+    "prices": {
+      "url": "https://eddb.io/archive/v5/listings.csv"
     }
   },
   "headers": {
