@@ -8,6 +8,9 @@
     },
     "prices": {
       "url": "https://eddb.io/archive/v5/listings.csv"
+    },
+    "stations": {
+      "url": "https://eddb.io/archive/v5/stations.json"
     }
   },
   "headers": {
