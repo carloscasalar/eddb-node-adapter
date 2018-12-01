@@ -8,7 +8,8 @@
     "lint": "eslint index.js commodities/**",
     "example::commodities": "node ./examples/commodities",
     "example::populatedSystems": "node ./examples/populatedSystems",
-    "example::prices": "node ./examples/prices"
+    "example::prices": "node ./examples/prices",
+    "example::stations": "node ./examples/stations"
   },
   "repository": {
     "type": "git",

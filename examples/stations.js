@@ -7,7 +7,7 @@ const stationsLoader = new StationsLoader();
 const time = process.hrtime();
 const loadStream = stationsLoader.stream();
 
-loadStream.on('data', (system) => console.dir(system, { depth: null, colors: true }));
+loadStream.on('data', (station) => console.dir(station, { depth: null, colors: true }));
 loadStream.on('error', (err) => console.log('unexpected error', err));
 loadStream.on('end', () => {
   const [seconds, nanoseconds] = process.hrtime(time);
