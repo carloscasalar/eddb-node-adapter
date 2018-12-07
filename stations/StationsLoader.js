@@ -4,7 +4,7 @@ const zlib = require('zlib');
 const request = require('request');
 const JSONStream = require('JSONStream');
 
-const commodityTransformer = require('./stationTransformer');
+const stationTransformer = require('./stationTransformer');
 const defaultConfig = require('../config/config');
 
 class StationsLoader {
@@ -18,8 +18,8 @@ class StationsLoader {
     const { headers } = defaultConfig;
     return request({ url, headers })
       .pipe(unzipStream)
-      .pipe(JSONStream.parse('*'));
-      //.pipe(commodityTransformer);
+      .pipe(JSONStream.parse('*'))
+      .pipe(stationTransformer);
   }
 }
 
