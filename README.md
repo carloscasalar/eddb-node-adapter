@@ -172,3 +172,90 @@ loadStream.on('end', () => {
   console.log('Stream finished in %d seconds and %d nanoseconds', seconds, nanoseconds);
 });
 ```
+### Stations
+
+Adapter `StationsLoader` is a class with a `stream` method that returns an stream witch emit an station in each 
+chunk. The station is an object with a _shape_ like the one exposed in EDDB but with camel case attributes and with
+integer values instead of string ones.
+
+This is a station object example:
+```javascript
+{ id: 1378,
+  name: 'Fabian Port',
+  systemId: 9558,
+  updatedAt: 1545073196,
+  maxLandingPadSize: 'L',
+  distanceToStar: 689,
+  governmentId: 64,
+  government: 'Corporate',
+  allegianceId: 1,
+  allegiance: 'Alliance',
+  stateId: 67,
+  state: 'Expansion',
+  typeId: 8,
+  type: 'Orbis Starport',
+  hasBlackMarket: false,
+  hasMarket: true,
+  hasRefuel: true,
+  hasRepair: true,
+  hasRearm: true,
+  hasOutfitting: true,
+  hasShipyard: true,
+  hasDocking: true,
+  hasCommodities: true,
+  importCommodities: [ 'Polymers', 'Aluminium', 'H.E. Suits' ],
+  exportCommodities: [ 'Hydrogen Fuel', 'Slaves', 'Scrap' ],
+  prohibitedCommodities:
+   [ 'Narcotics',
+     'Tobacco',
+     'Combat Stabilisers',
+     'Imperial Slaves',
+     'Slaves',
+     'Battle Weapons' ],
+  economies: [ 'Refinery' ],
+  shipyardUpdatedAt: 1543281128,
+  outfittingUpdatedAt: 1543281128,
+  marketUpdatedAt: 1543281128,
+  isPlanetary: false,
+  sellingShips:
+   [ 'Adder',
+     'Hauler',
+     'Sidewinder Mk. I',
+     'Type-9 Heavy',
+     'Keelback',
+     'Type-10 Defender',
+     'Alliance Chieftain',
+     'Alliance Crusader' ],
+  sellingModules:
+   [ 738,
+     739,
+     740,
+     741,
+     742 ],
+  settlementSizeId: 64,
+  settlementSize: '+++',
+  settlementSecurityId: 1,
+  settlementSecurity: 'Low',
+  bodyId: 4419141,
+  controllingMinorFactionId: 74921 
+} 
+```
+
+This is an usage example:
+```javascript
+'use strict';
+
+const { StationsLoader } = require('eddb-node-adapter');
+
+const stationsLoader = new StationsLoader();
+
+const time = process.hrtime();
+const loadStream = stationsLoader.stream();
+
+loadStream.on('data', (station) => console.dir(station, { depth: null, colors: true }));
+loadStream.on('error', (err) => console.log('unexpected error', err));
+loadStream.on('end', () => {
+  const [seconds, nanoseconds] = process.hrtime(time);
+  console.log('Stream finished in %d seconds and %d nanoseconds', seconds, nanoseconds);
+}); 
+```

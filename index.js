@@ -9,5 +9,5 @@ module.exports = {
   CommoditiesLoader,
   PopulatedSystemsLoader,
   PricesLoader,
-  StationsLoader,
+  StationsLoader
 };

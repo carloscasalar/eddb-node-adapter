@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.4.0 ?
+## v0.4.0 2018-12-18
 * Add `StationsLoader` adapter class.
 
 ## v0.3.0 2018-11-14
