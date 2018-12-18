@@ -1,5 +1,3 @@
-'use strict';
-
 const { CommoditiesLoader } = require('../');
 
 const commoditiesLoader = new CommoditiesLoader();

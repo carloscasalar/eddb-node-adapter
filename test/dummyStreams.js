@@ -1,5 +1,3 @@
-'use strict';
-
 const { Readable, Writable } = require('stream');
 
 const newDummyReadStream = () => new Readable({

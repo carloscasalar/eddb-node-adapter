@@ -1,5 +1,3 @@
-'use strict';
-
 const { StationsLoader } = require('../');
 
 const stationsLoader = new StationsLoader();

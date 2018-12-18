@@ -1,5 +1,3 @@
-'use strict';
-
 const zlib = require('zlib');
 const request = require('request');
 const JSONStream = require('JSONStream');

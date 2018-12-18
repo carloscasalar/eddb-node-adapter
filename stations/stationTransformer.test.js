@@ -1,5 +1,3 @@
-'use strict';
-
 const { newDummyReadStream, newDummyWriteStream } = require('../test/dummyStreams');
 
 const stationTransformer = require('./stationTransformer');

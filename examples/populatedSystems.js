@@ -1,5 +1,3 @@
-'use strict';
-
 const { PopulatedSystemsLoader } = require('../');
 
 const populatedSystemsLoader = new PopulatedSystemsLoader();

@@ -1,5 +1,3 @@
-'use strict';
-
 const { PricesLoader } = require('../');
 
 const pricesLoader = new PricesLoader();
