@@ -115,8 +115,6 @@ This is a populated system object example:
 
 This is an usage example:
 ```javascript
-'use strict';
-
 const { PopulatedSystems } = require('eddb-node-adapter');
 
 const populatedSystems = new PopulatedSystems();
@@ -156,8 +154,6 @@ This is a populated system object example:
 
 This is an usage example:
 ```javascript
-'use strict';
-
 const { PricesLoader } = require('eddb-node-adapter');
 
 const pricesLoader = new PricesLoader();
@@ -243,8 +239,6 @@ This is a station object example:
 
 This is an usage example:
 ```javascript
-'use strict';
-
 const { StationsLoader } = require('eddb-node-adapter');
 
 const stationsLoader = new StationsLoader();
