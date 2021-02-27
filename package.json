@@ -30,8 +30,8 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.19.1",
     "eslint-config-netflix": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "jest": "^23.6.0"
