@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.4.1 2021-02-27
+* Update URLs to EDDB v6
+* Upgrade dependencies to solve security alerts
+
 ## v0.4.0 2018-12-18
 * Add `StationsLoader` adapter class.
 
