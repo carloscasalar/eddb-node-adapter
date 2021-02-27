@@ -1,6 +1,6 @@
 {
   "name": "eddb-node-adapter",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "Node adapter for EDDB API",
   "main": "index.js",
   "engines": {

@@ -1,8 +1,17 @@
 # CHANGELOG
 
-## v0.4.1 2021-02-28
+## v0.4.2 2021-02-28
 * Update URLs to EDDB v6
 * Upgrade dependencies to solve security alerts
+
+## v0.4.1 2018-11-03
+Upgrade dependencies for security warnings:
+
+  * mixin-deep
+  * eslint-utils
+  * lodash
+  * js-yaml
+  * handlebars
 
 ## v0.4.0 2018-12-18
 * Add `StationsLoader` adapter class.
