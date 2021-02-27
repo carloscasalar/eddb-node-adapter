@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.4.1 2021-02-27
+## v0.4.1 2021-02-28
 * Update URLs to EDDB v6
 * Upgrade dependencies to solve security alerts
 
