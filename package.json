@@ -34,7 +34,7 @@
     "eslint": "^4.19.1",
     "eslint-config-netflix": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
-    "jest": "^23.6.0"
+    "jest": "^26.6.3"
   },
   "eslintConfig": {
     "extends": "netflix",
