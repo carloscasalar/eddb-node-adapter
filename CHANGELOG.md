@@ -4,7 +4,7 @@
 * Update URLs to EDDB v6
 * Upgrade dependencies to solve security alerts
 
-## v0.4.1 2018-11-03
+## v0.4.1 2019-11-03
 Upgrade dependencies for security warnings:
 
   * mixin-deep
