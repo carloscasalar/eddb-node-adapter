@@ -2,7 +2,8 @@
   "name": "@carloscasalar/eddb-node-adapter",
   "version": "0.5.0",
   "description": "Node adapter for EDDB API",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -20,7 +21,7 @@
     "url": "https://github.com/carloscasalar/eddb-node-adapter.git"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/carloscasalar"
+    "registry": "https://npm.pkg.github.com/carloscasalar"
   },
   "keywords": [
     "eddb",
@@ -43,6 +44,7 @@
     "eslint": "^4.19.1",
     "eslint-config-netflix": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "typescript": "^4.2.2"
   }
 }
