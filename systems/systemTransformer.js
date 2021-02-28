@@ -16,7 +16,6 @@ const systemTransformer = new Transform({
       government,
       allegiance_id: allegianceId,
       allegiance,
-      state_id: stateId,
       state,
       security_id: securityId,
       security,
@@ -40,13 +39,21 @@ const systemTransformer = new Transform({
       .map(({
         minor_faction_id: minorFactionId,
         state_id: factionStateId,
+        happiness_id: happinessId,
         influence,
-        state: factionState
+        state: factionState,
+        active_states:activeStates,
+        pending_states:pendingStates,
+        recovering_states:recoveringStates,
       }) => ({
         minorFactionId,
         stateId: factionStateId,
+        happinessId,
         influence,
-        state: factionState
+        state: factionState,
+        activeStates,
+        pendingStates,
+        recoveringStates,
       }));
 
     done(null, {
@@ -62,7 +69,6 @@ const systemTransformer = new Transform({
       government,
       allegianceId,
       allegiance,
-      stateId,
       state,
       securityId,
       security,
