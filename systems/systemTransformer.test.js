@@ -37,12 +37,11 @@ describe('systemTransformer tests', () => {
       reserve_type_id: 3,
       reserve_type: 'Common',
       minor_faction_presences: [{ minor_faction_id: 75876,
-        state_id: 80,
         happiness_id: 1,
         influence: 0,
-        active_states: ['Active'],
-        pending_states: ['Pending'],
-        recovering_states: ['Recovering'],
+        active_states: [{ id: 67, name: 'Expansion' }],
+        pending_states: [{ id: 67, name: 'Expansion' }],
+        recovering_states: [{ id: 67, name: 'Expansion' }],
       }],
     });
     readStream.push(null);
@@ -84,12 +83,11 @@ describe('systemTransformer tests', () => {
         reserveType: 'Common',
         minorFactionPresences:
           [ { minorFactionId: 75876,
-            stateId: 80,
             happinessId: 1,
             influence: 0,
-            activeStates: ['Active'],
-            pendingStates: ['Pending'],
-            recoveringStates: ['Recovering'],
+            activeStates: [{ id: 67, name: 'Expansion' }],
+            pendingStates: [{ id: 67, name: 'Expansion' }],
+            recoveringStates: [{ id: 67, name: 'Expansion' }],
           } ],
       });
       done();
