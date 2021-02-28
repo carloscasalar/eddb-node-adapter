@@ -1,7 +1,7 @@
 # CHANGELOG
 
-## v0.4.4 2021-02-28
-* Poke version
+## v0.4.4 - v0.4.5 2021-02-28
+* Poke versions
 
 ## v0.4.3 2021-02-28
 * Update package name to include the scope

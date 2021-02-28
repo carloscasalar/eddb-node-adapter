@@ -1,6 +1,6 @@
 {
   "name": "@carloscasalar/eddb-node-adapter",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Node adapter for EDDB API",
   "main": "index.js",
   "engines": {
@@ -17,6 +17,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/carloscasalar/ed-node-adapter.git"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@carloscasalar"
   },
   "keywords": [
     "eddb"
