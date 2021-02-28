@@ -9,10 +9,11 @@
   "scripts": {
     "test": "jest --verbose",
     "lint": "eslint index.js commodities/**",
-    "example::commodities": "node ./examples/commodities",
-    "example::populatedSystems": "node ./examples/populatedSystems",
-    "example::prices": "node ./examples/prices",
-    "example::stations": "node ./examples/stations"
+    "lint:fix": "eslint index.js commodities/** --fix",
+    "example:commodities": "node ./examples/commodities",
+    "example:populatedSystems": "node ./examples/populatedSystems",
+    "example:prices": "node ./examples/prices",
+    "example:stations": "node ./examples/stations"
   },
   "repository": {
     "type": "git",
@@ -41,24 +42,5 @@
     "eslint-config-netflix": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "jest": "^26.6.3"
-  },
-  "eslintConfig": {
-    "extends": "netflix",
-    "env": {
-      "es6": true,
-      "node": true,
-      "jest": true
-    },
-    "rules": {
-      "semi": [
-        "off"
-      ],
-      "no-extra-semi": [
-        "error"
-      ],
-      "class-methods-use-this": [
-        "off"
-      ]
-    }
   }
 }
