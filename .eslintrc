@@ -1,5 +1,6 @@
 {
   "extends": "netflix",
+  "parser": "typescript-eslint-parser",
   "env": {
     "es6": true,
     "node": true,
