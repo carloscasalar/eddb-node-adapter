@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.4.3 2021-02-28
+* Update package name to include the scope
+
 ## v0.4.2 2021-02-28
 * Update URLs to EDDB v6
 * Upgrade dependencies to solve security alerts
