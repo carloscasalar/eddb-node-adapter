@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/carloscasalar/eddb-node-adapter.svg?style=svg)](https://circleci.com/gh/carloscasalar/eddb-node-adapter) 
 # eddb node adapter 
-Node adapter for [EDDB API](https://eddb.io/api) v5.1.
+Node adapter for [EDDB API](https://eddb.io/api) v6.0.
 
 ## Install
 
