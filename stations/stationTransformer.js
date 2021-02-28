@@ -14,8 +14,7 @@ const stationTransformer = new Transform({
       government,
       allegiance_id: allegianceId,
       allegiance,
-      state_id: stateId,
-      state,
+      states,
       type_id: typeId,
       type,
       has_blackmarket: hasBlackMarket,
@@ -57,8 +56,7 @@ const stationTransformer = new Transform({
       government,
       allegianceId,
       allegiance,
-      stateId,
-      state,
+      states,
       typeId,
       type,
       hasBlackMarket,
@@ -86,9 +84,9 @@ const stationTransformer = new Transform({
       settlementSecurity,
       bodyId,
       controllingMinorFactionId,
-      ...unexpectedAttributes
+      ...unexpectedAttributes,
     })
-  }
+  },
 });
 
 module.exports = stationTransformer;

@@ -42,9 +42,9 @@ const systemTransformer = new Transform({
         happiness_id: happinessId,
         influence,
         state: factionState,
-        active_states:activeStates,
-        pending_states:pendingStates,
-        recovering_states:recoveringStates,
+        active_states: activeStates,
+        pending_states: pendingStates,
+        recovering_states: recoveringStates,
       }) => ({
         minorFactionId,
         stateId: factionStateId,
@@ -85,9 +85,9 @@ const systemTransformer = new Transform({
       reserveTypeId,
       reserveType,
       minorFactionPresences,
-      ...unexpectedAttributes
+      ...unexpectedAttributes,
     })
-  }
+  },
 });
 
 module.exports = systemTransformer;
