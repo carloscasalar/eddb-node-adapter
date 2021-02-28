@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "lint": "eslint index.js commodities/**",
-    "lint:fix": "eslint index.js commodities/** --fix",
+    "lint": "eslint index.js **/*.js",
+    "lint:fix": "eslint index.js **/*.js --fix",
     "example:commodities": "node ./examples/commodities",
     "example:populatedSystems": "node ./examples/populatedSystems",
     "example:prices": "node ./examples/prices",
