@@ -21,8 +21,7 @@ describe('systemTransformer tests', () => {
       government: 'Prison',
       allegiance_id: 4,
       allegiance: 'Independent',
-      state_id: 80,
-      state: 'None',
+      states: ['None'],
       security_id: 64,
       security: 'Anarchy',
       primary_economy_id: 10,
@@ -37,11 +36,13 @@ describe('systemTransformer tests', () => {
       controlling_minor_faction: 'Independent Detention Foundation',
       reserve_type_id: 3,
       reserve_type: 'Common',
-      minor_faction_presences:
-            [ { minor_faction_id: 75876,
-              state_id: 80,
-              influence: 0,
-              state: 'None' } ]
+      minor_faction_presences: [{ minor_faction_id: 75876,
+        happiness_id: 1,
+        influence: 0,
+        active_states: [{ id: 67, name: 'Expansion' }],
+        pending_states: [{ id: 67, name: 'Expansion' }],
+        recovering_states: [{ id: 67, name: 'Expansion' }],
+      }],
     });
     readStream.push(null);
 
@@ -65,8 +66,7 @@ describe('systemTransformer tests', () => {
         government: 'Prison',
         allegianceId: 4,
         allegiance: 'Independent',
-        stateId: 80,
-        state: 'None',
+        states: ['None'],
         securityId: 64,
         security: 'Anarchy',
         primaryEconomyId: 10,
@@ -83,9 +83,12 @@ describe('systemTransformer tests', () => {
         reserveType: 'Common',
         minorFactionPresences:
           [ { minorFactionId: 75876,
-            stateId: 80,
+            happinessId: 1,
             influence: 0,
-            state: 'None' } ]
+            activeStates: [{ id: 67, name: 'Expansion' }],
+            pendingStates: [{ id: 67, name: 'Expansion' }],
+            recoveringStates: [{ id: 67, name: 'Expansion' }],
+          } ],
       });
       done();
     });

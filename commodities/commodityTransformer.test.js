@@ -22,7 +22,7 @@ describe('commodityTransformer tests', () => {
       'sell_price_upper_average': 5038,
       'is_non_marketable': 0,
       'ed_id': 128672163,
-      'category': { 'id': 16, 'name': 'Salvage' }
+      'category': { 'id': 16, 'name': 'Salvage' },
     });
     readStream.push(null);
 
@@ -46,7 +46,7 @@ describe('commodityTransformer tests', () => {
         'sellPriceUpperAverage': 5038,
         'isNonMarketable': false,
         'edId': 128672163,
-        'category': { 'id': 16, 'name': 'Salvage' }
+        'category': { 'id': 16, 'name': 'Salvage' },
       });
       done();
     });

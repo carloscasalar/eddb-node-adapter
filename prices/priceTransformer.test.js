@@ -18,7 +18,7 @@ describe('priceTransformer tests', () => {
       sell_price: '8427',
       demand: '50',
       demand_bracket: '3',
-      collected_at: '1541874378'
+      collected_at: '1541874378',
     });
     readStream.push(null);
 
@@ -39,7 +39,7 @@ describe('priceTransformer tests', () => {
         sellPrice: 8427,
         demand: 50,
         demandBracket: 3,
-        collectedAt: 1541874378
+        collectedAt: 1541874378,
       });
       done();
     });

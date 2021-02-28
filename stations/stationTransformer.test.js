@@ -18,8 +18,7 @@ describe('stationTransformer tests', () => {
       government: 'Corporate',
       allegiance_id: 4,
       allegiance: 'Independent',
-      state_id: 64,
-      state: 'Civil War',
+      states: ['Civil War'],
       type_id: 6,
       type: 'Mining Outpost',
       has_blackmarket: false,
@@ -52,7 +51,7 @@ describe('stationTransformer tests', () => {
       settlement_security_id: 1,
       settlement_security: 'Low',
       body_id: 1502417,
-      controlling_minor_faction_id: 55468
+      controlling_minor_faction_id: 55468,
     });
     readStream.push(null);
 
@@ -74,8 +73,7 @@ describe('stationTransformer tests', () => {
         government: 'Corporate',
         allegianceId: 4,
         allegiance: 'Independent',
-        stateId: 64,
-        state: 'Civil War',
+        states: ['Civil War'],
         typeId: 6,
         type: 'Mining Outpost',
         hasBlackMarket: false,
@@ -108,7 +106,7 @@ describe('stationTransformer tests', () => {
         settlementSecurityId: 1,
         settlementSecurity: 'Low',
         bodyId: 1502417,
-        controllingMinorFactionId: 55468
+        controllingMinorFactionId: 55468,
       });
       done();
     });

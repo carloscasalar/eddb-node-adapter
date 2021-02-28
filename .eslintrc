@@ -1,0 +1,18 @@
+{
+  "extends": "netflix",
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "semi": ["off"],
+    "no-extra-semi": ["error"],
+    "class-methods-use-this": ["off"],
+    "comma-dangle": ["error", "always-multiline"],
+    "key-spacing": ["error", {
+      "afterColon": true,
+      "mode": "minimum"
+    }]
+  }
+}

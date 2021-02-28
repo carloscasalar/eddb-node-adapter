@@ -13,10 +13,10 @@ const newDummyWriteStream = (saveIncomingChunkFn) => new Writable({
       saveIncomingChunkFn(data);
 
     this.emit('end');
-  }
+  },
 });
 
 module.exports = {
   newDummyReadStream,
-  newDummyWriteStream
+  newDummyWriteStream,
 };

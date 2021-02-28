@@ -38,9 +38,9 @@ const commodityTransformer = new Transform({
       sellPriceUpperAverage,
       isNonMarketable,
       edId,
-      ...unexpectedAttributes
+      ...unexpectedAttributes,
     })
-  }
+  },
 });
 
 module.exports = commodityTransformer;

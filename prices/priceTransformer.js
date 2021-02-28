@@ -39,9 +39,9 @@ const priceTransformer = new Transform({
       demand,
       demandBracket,
       collectedAt,
-      ...unexpectedAttributes
+      ...unexpectedAttributes,
     })
-  }
+  },
 });
 
 module.exports = priceTransformer;

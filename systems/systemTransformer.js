@@ -16,8 +16,7 @@ const systemTransformer = new Transform({
       government,
       allegiance_id: allegianceId,
       allegiance,
-      state_id: stateId,
-      state,
+      states,
       security_id: securityId,
       security,
       primary_economy_id: primaryEconomyId,
@@ -39,14 +38,18 @@ const systemTransformer = new Transform({
     const minorFactionPresences = minor_faction_presences
       .map(({
         minor_faction_id: minorFactionId,
-        state_id: factionStateId,
+        happiness_id: happinessId,
         influence,
-        state: factionState
+        active_states: activeStates,
+        pending_states: pendingStates,
+        recovering_states: recoveringStates,
       }) => ({
         minorFactionId,
-        stateId: factionStateId,
+        happinessId,
         influence,
-        state: factionState
+        activeStates,
+        pendingStates,
+        recoveringStates,
       }));
 
     done(null, {
@@ -62,8 +65,7 @@ const systemTransformer = new Transform({
       government,
       allegianceId,
       allegiance,
-      stateId,
-      state,
+      states,
       securityId,
       security,
       primaryEconomyId,
@@ -79,9 +81,9 @@ const systemTransformer = new Transform({
       reserveTypeId,
       reserveType,
       minorFactionPresences,
-      ...unexpectedAttributes
+      ...unexpectedAttributes,
     })
-  }
+  },
 });
 
 module.exports = systemTransformer;
