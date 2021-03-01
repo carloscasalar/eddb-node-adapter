@@ -1,9 +1,10 @@
 import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
 import { Price } from 'prices/schema';
 
-const { priceTransformer } = require('./priceTransformer');
+import { priceTransformer } from './priceTransformer';
 
 describe('priceTransformer tests', () => {
+  // eslint-disable-next-line jest/no-done-callback
   it('should transform underscore attributes into camelcase ones', (done) => {
     let transformedPrice: Price;
 

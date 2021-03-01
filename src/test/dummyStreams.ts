@@ -1,13 +1,13 @@
-const { Readable, Writable } = require('stream');
+import {Readable, Stream, Writable} from 'stream';
 
-export const newDummyReadStream = () => new Readable({
+export const newDummyReadStream = ():Stream => new Readable({
   objectMode: true,
-  // eslint-disable-next-line no-empty-function
+  // eslint-disable-next-line no-empty-function,@typescript-eslint/no-empty-function
   read: () =>{},
 });
 
 export type SaveIncomingChunkFn<DataType> = (data: DataType) => void
-export const newDummyWriteStream = <DataType>(saveIncomingChunkFn: SaveIncomingChunkFn<DataType>) => new Writable({
+export const newDummyWriteStream = <DataType>(saveIncomingChunkFn: SaveIncomingChunkFn<DataType>):Stream => new Writable({
   objectMode: true,
   write(data: DataType) {
     if(saveIncomingChunkFn)
