@@ -1,1 +1,1 @@
-export type StationID = number;
+export type StationId = number;

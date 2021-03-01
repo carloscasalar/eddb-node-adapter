@@ -1,17 +1,30 @@
-import { StationID } from 'stations/schema';
-import { CommodityID } from 'commodities/schema';
+import { StationId } from 'stations/schema';
+import { CommodityId } from 'commodities/schema';
 
-export type PriceID = number;
+export type PriceId = number;
 
 export interface Price {
-  id: PriceID,
-  stationID: StationID,
-  commodityID: CommodityID,
+  id: PriceId,
+  stationId: StationId,
+  commodityId: CommodityId,
   supply: number,
-  supplyBucket: number,
+  supplyBracket: number,
   buyPrice: number,
   sellPrice: number,
   demand: number,
   demandBracket: number,
   collectedAt: number,
+}
+
+export interface RemotePrice {
+  id: string,
+  station_id: string,
+  commodity_id: string,
+  supply: string,
+  supply_bracket: string,
+  buy_price: string,
+  sell_price: string,
+  demand: string,
+  demand_bracket: string,
+  collected_at: string,
 }

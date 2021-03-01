@@ -1,1 +1,1 @@
-export type CommodityID = number;
+export type CommodityId = number;
