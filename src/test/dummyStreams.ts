@@ -2,8 +2,8 @@ const { Readable, Writable } = require('stream');
 
 export const newDummyReadStream = () => new Readable({
   objectMode: true,
-  // eslint-disable-next-line
-  read() {}
+  // eslint-disable-next-line no-empty-function
+  read: () =>{},
 });
 
 export type SaveIncomingChunkFn<DataType> = (data: DataType) => void

@@ -70,10 +70,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "*": ["src/*"]
-    }
+    "baseUrl": "./src",
+    "paths": {}
   },
   "include": [
     "src"

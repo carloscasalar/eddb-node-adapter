@@ -1,7 +1,7 @@
 import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
 import { Price } from 'prices/schema';
 
-const priceTransformer = require('./priceTransformer');
+const { priceTransformer } = require('./priceTransformer');
 
 describe('priceTransformer tests', () => {
   it('should transform underscore attributes into camelcase ones', (done) => {
