@@ -39,7 +39,7 @@ const commodityTransformer = new Transform({
       isNonMarketable,
       edId,
       ...unexpectedAttributes,
-    })
+    });
   },
 });
 

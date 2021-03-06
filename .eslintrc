@@ -25,6 +25,7 @@
     "class-methods-use-this": ["off"],
     "comma-dangle": ["error", "always-multiline"],
     "eol-last": ["error", "always"],
+    "quote-props": ["error", "as-needed"],
     "key-spacing": ["error", {
       "afterColon": true,
       "mode": "minimum"
