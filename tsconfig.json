@@ -74,10 +74,17 @@
     "paths": {}
   },
   "include": [
-    "src"
+    "src",
+    "external.d.ts"
   ],
   "exclude": [
     "node_modules",
     "dist"
+  ],
+  "ts-node": {
+    "files": true
+  },
+  "files": [
+    "src/external.d.ts"
   ]
 }

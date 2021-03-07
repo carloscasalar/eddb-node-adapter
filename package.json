@@ -13,7 +13,7 @@
     "lint:fix": "eslint src/**/*.ts --fix",
     "example:commodities": "node ./examples/commodities",
     "example:populatedSystems": "node ./examples/populatedSystems",
-    "example:prices": "node ./examples/prices",
+    "example:prices": "ts-node src/examples/prices.ts",
     "example:stations": "node ./examples/stations"
   },
   "repository": {
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
+    "@types/request": "^2.48.5",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "babel-eslint": "^7.2.3",

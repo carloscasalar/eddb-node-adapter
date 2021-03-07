@@ -1,0 +1,19 @@
+{
+  "eddbapi": {
+    "commodities": {
+      "url": "https://eddb.io/archive/v6/commodities.json"
+    },
+    "populatedSystems": {
+      "url": "https://eddb.io/archive/v6/systems_populated.json"
+    },
+    "prices": {
+      "url": "https://eddb.io/archive/v6/listings.csv"
+    },
+    "stations": {
+      "url": "https://eddb.io/archive/v6/stations.json"
+    }
+  },
+  "headers": {
+    "Accept-Encoding": "gzip, deflate, sdch"
+  }
+}
