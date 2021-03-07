@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.6.0 ?
+  * Add module definition files and type support
+
 ## v0.5.0 2021-02-28
   * Update populated systems and station models to meet EDDB model v6
     * Properties `state` and `state_id` have been removed from table `minor_faction`.
