@@ -12,7 +12,7 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "example:commodities": "ts-node src/examples/commodities",
-    "example:populatedSystems": "node ./examples/populatedSystems",
+    "example:populatedSystems": "ts-node src/examples/populatedSystems",
     "example:prices": "ts-node src/examples/prices.ts",
     "example:stations": "ts-node src/examples/stations"
   },
