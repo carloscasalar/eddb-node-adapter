@@ -14,7 +14,7 @@
     "example:commodities": "ts-node src/examples/commodities",
     "example:populatedSystems": "node ./examples/populatedSystems",
     "example:prices": "ts-node src/examples/prices.ts",
-    "example:stations": "node ./examples/stations"
+    "example:stations": "ts-node src/examples/stations"
   },
   "repository": {
     "type": "git",
