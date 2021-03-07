@@ -3,7 +3,7 @@ import zlib from 'zlib';
 import request from 'request';
 import JSONStream from 'JSONStream';
 
-import {commodityTransformer} from './commodityTransformer';
+import { commodityTransformer } from './commodityTransformer';
 import defaultConfig from '../config/config.json';
 
 export class CommoditiesLoader {
@@ -13,9 +13,6 @@ export class CommoditiesLoader {
     const unzipStream = zlib.createGunzip();
     const { url } = this;
     const { headers } = defaultConfig;
-    return request({ url, headers })
-      .pipe(unzipStream)
-      .pipe(JSONStream.parse('*'))
-      .pipe(commodityTransformer);
+    return request({ url, headers }).pipe(unzipStream).pipe(JSONStream.parse('*')).pipe(commodityTransformer);
   }
 }

@@ -23,11 +23,9 @@ describe('priceTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream<Price>((data) => transformedPrice = data);
+    const writeStream = newDummyWriteStream<Price>((data) => (transformedPrice = data));
 
-    const fullStream = readStream
-      .pipe(priceTransformer)
-      .pipe(writeStream);
+    const fullStream = readStream.pipe(priceTransformer).pipe(writeStream);
 
     fullStream.on('end', () => {
       expect(transformedPrice).toEqual({
@@ -46,6 +44,5 @@ describe('priceTransformer tests', () => {
     });
 
     fullStream.on('error', (err: Error) => done(err));
-
   });
 });

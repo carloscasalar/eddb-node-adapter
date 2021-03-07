@@ -1,8 +1,8 @@
 /* eslint-disable jest/no-done-callback */
 import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
 
-import {commodityTransformer} from './commodityTransformer';
-import {Commodity} from "./schema";
+import { commodityTransformer } from './commodityTransformer';
+import { Commodity } from './schema';
 
 describe('commodityTransformer tests', () => {
   test('should transform underscore attributes into camelcase ones', (done) => {
@@ -28,11 +28,9 @@ describe('commodityTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream<Commodity>((data) => transformedCommodity = data);
+    const writeStream = newDummyWriteStream<Commodity>((data) => (transformedCommodity = data));
 
-    const fullStream = readStream
-      .pipe(commodityTransformer)
-      .pipe(writeStream);
+    const fullStream = readStream.pipe(commodityTransformer).pipe(writeStream);
 
     fullStream.on('end', () => {
       expect(transformedCommodity).toEqual({
@@ -55,6 +53,5 @@ describe('commodityTransformer tests', () => {
     });
 
     fullStream.on('error', (err) => done(err));
-
   });
 });
