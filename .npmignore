@@ -65,3 +65,5 @@ typings/
 
 .circleci
 .github
+src
+tsconfig.json
