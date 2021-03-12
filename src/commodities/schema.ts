@@ -1,13 +1,11 @@
-export type CommodityId = number;
-export type CommodityCategoryId = number;
 export interface CommodityCategory {
-  id: CommodityCategoryId;
+  id: number;
   name: string;
 }
 export interface Commodity {
-  id: CommodityId;
+  id: number;
   name: string;
-  categoryId: CommodityCategoryId;
+  categoryId: number;
   category: CommodityCategory;
   averagePrice: number;
   isRare: boolean;

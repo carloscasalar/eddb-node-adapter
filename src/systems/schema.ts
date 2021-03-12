@@ -1,5 +1,3 @@
-export type SystemId = number;
-
 export interface FactionState {
   id: number;
   name: string;

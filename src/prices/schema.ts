@@ -1,12 +1,7 @@
-import { StationId } from 'stations/schema';
-import { CommodityId } from 'commodities/schema';
-
-export type PriceId = number;
-
 export interface Price {
-  id: PriceId;
-  stationId: StationId;
-  commodityId: CommodityId;
+  id: number;
+  stationId: number;
+  commodityId: number;
   supply: number;
   supplyBracket: number;
   buyPrice: number;

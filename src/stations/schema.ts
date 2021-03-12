@@ -1,18 +1,12 @@
-import { ShipId } from '../ships/schema';
-import { ModuleId } from '../modules/schema';
-import { SystemId } from '../systems/schema';
 import { SettlementSecurity, SettlementSize } from '../settlements/schema';
-
-export type StationId = number;
-export type StationTypeId = number;
 
 //TODO find all distinct pad sizes
 export type LandingPadSize = 'M';
 
 export interface Station {
-  id: StationId;
+  id: number;
   name: string;
-  systemId: SystemId;
+  systemId: number;
   updatedAt: number;
   maxLandingPadSize: LandingPadSize;
   distanceToStar: number;
@@ -21,7 +15,7 @@ export interface Station {
   allegianceId: number;
   allegiance: string;
   states: string[];
-  typeId: StationTypeId;
+  typeId: number;
   type: string;
   hasBlackMarket: boolean;
   hasMarket: boolean;
@@ -40,8 +34,8 @@ export interface Station {
   outfittingUpdatedAt: number;
   marketUpdatedAt: number;
   isPlanetary: boolean;
-  sellingShips: ShipId[];
-  sellingModules: ModuleId[];
+  sellingShips: number[];
+  sellingModules: number[];
   settlementSizeId: number;
   settlementSize: SettlementSize;
   settlementSecurityId: number;
