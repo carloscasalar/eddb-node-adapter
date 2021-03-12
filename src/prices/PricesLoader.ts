@@ -15,6 +15,9 @@ export class PricesLoader {
     const { headers } = defaultConfig;
     const csvStreamer = csv({ columns: true });
 
-    return request({ url, headers }).pipe(unzipStream).pipe(csvStreamer).pipe(priceTransformer);
+    return request({ url, headers })
+      .pipe(unzipStream)
+      .pipe(csvStreamer)
+      .pipe(priceTransformer);
   }
 }

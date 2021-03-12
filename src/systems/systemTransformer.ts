@@ -2,7 +2,11 @@ import { Transform } from 'stream';
 import { RemoteSystem, System } from './schema';
 
 type TransformCallback = (error?: Error | null, system?: System) => void;
-type SystemTransformer = (system: RemoteSystem, chunk: unknown, done: TransformCallback) => void;
+type SystemTransformer = (
+  system: RemoteSystem,
+  chunk: unknown,
+  done: TransformCallback,
+) => void;
 
 const transform: SystemTransformer = (system, _, done) => {
   const {

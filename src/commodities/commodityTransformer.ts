@@ -2,7 +2,11 @@ import { Transform } from 'stream';
 import { Commodity, RemoteCommodity } from './schema';
 
 type TransformerCallback = (error: Error | null, commodity: Commodity) => void;
-type CommodityTransformer = (commodity: RemoteCommodity, chunk: unknown, done: TransformerCallback) => void;
+type CommodityTransformer = (
+  commodity: RemoteCommodity,
+  chunk: unknown,
+  done: TransformerCallback,
+) => void;
 const transform: CommodityTransformer = (commodity, _, done) => {
   const {
     id: idStr,

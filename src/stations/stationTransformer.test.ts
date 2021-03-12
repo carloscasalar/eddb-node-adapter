@@ -58,7 +58,9 @@ describe('stationTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream<Commodity>((data) => (transformedCommodity = data));
+    const writeStream = newDummyWriteStream<Commodity>(
+      (data) => (transformedCommodity = data),
+    );
 
     const fullStream = readStream.pipe(stationTransformer).pipe(writeStream);
 

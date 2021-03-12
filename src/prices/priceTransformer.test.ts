@@ -23,7 +23,9 @@ describe('priceTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream<Price>((data) => (transformedPrice = data));
+    const writeStream = newDummyWriteStream<Price>(
+      (data) => (transformedPrice = data),
+    );
 
     const fullStream = readStream.pipe(priceTransformer).pipe(writeStream);
 

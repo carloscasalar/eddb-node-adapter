@@ -28,7 +28,9 @@ describe('commodityTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream<Commodity>((data) => (transformedCommodity = data));
+    const writeStream = newDummyWriteStream<Commodity>(
+      (data) => (transformedCommodity = data),
+    );
 
     const fullStream = readStream.pipe(commodityTransformer).pipe(writeStream);
 

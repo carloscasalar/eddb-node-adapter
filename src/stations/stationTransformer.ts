@@ -3,7 +3,11 @@ import { LandingPadSize, RemoteStation, Station } from './schema';
 import { SettlementSecurity, SettlementSize } from '../settlements/schema';
 
 type TransformCallback = (error?: Error | null, station?: Station) => void;
-type StationTransformer = (station: RemoteStation, chunk: unknown, done: TransformCallback) => void;
+type StationTransformer = (
+  station: RemoteStation,
+  chunk: unknown,
+  done: TransformCallback,
+) => void;
 
 const transform: StationTransformer = (station, _, done) => {
   const {

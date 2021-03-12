@@ -51,7 +51,9 @@ describe('systemTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream<System>((data) => (transformedSystem = data));
+    const writeStream = newDummyWriteStream<System>(
+      (data) => (transformedSystem = data),
+    );
 
     const fullStream = readStream.pipe(systemTransformer).pipe(writeStream);
 

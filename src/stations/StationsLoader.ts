@@ -12,6 +12,9 @@ export class StationsLoader {
     const unzipStream = zlib.createGunzip();
     const { url } = this;
     const { headers } = defaultConfig;
-    return request({ url, headers }).pipe(unzipStream).pipe(JSONStream.parse('*')).pipe(stationTransformer);
+    return request({ url, headers })
+      .pipe(unzipStream)
+      .pipe(JSONStream.parse('*'))
+      .pipe(stationTransformer);
   }
 }

@@ -2,7 +2,11 @@ import { Transform } from 'stream';
 import { Price, RemotePrice } from 'prices/schema';
 
 type TransformCallback = (error?: Error | null, price?: Price) => void;
-type PriceTransformer = (price: RemotePrice, chunk: unknown, done: TransformCallback) => void;
+type PriceTransformer = (
+  price: RemotePrice,
+  chunk: unknown,
+  done: TransformCallback,
+) => void;
 const transform: PriceTransformer = (price, _, done) => {
   const {
     id: idStr,

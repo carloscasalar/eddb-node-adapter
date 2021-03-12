@@ -13,6 +13,9 @@ export class CommoditiesLoader {
     const unzipStream = zlib.createGunzip();
     const { url } = this;
     const { headers } = defaultConfig;
-    return request({ url, headers }).pipe(unzipStream).pipe(JSONStream.parse('*')).pipe(commodityTransformer);
+    return request({ url, headers })
+      .pipe(unzipStream)
+      .pipe(JSONStream.parse('*'))
+      .pipe(commodityTransformer);
   }
 }
