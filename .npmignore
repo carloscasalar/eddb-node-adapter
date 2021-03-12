@@ -63,6 +63,12 @@ typings/
 # next.js build output
 .next
 
+# test code
+*.spec.js
+*.spec.ts
+*.test.ts
+*.test.js
+
 .circleci
 .github
 src

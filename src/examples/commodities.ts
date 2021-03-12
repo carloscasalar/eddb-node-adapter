@@ -1,4 +1,4 @@
-import { CommoditiesLoader } from '../commodities/CommoditiesLoader';
+import { CommoditiesLoader } from '..';
 
 const commoditiesLoader = new CommoditiesLoader();
 

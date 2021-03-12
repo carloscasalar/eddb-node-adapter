@@ -1,5 +1,5 @@
-import { Transform } from 'stream';
 import { Price, RemotePrice } from 'prices/schema';
+import { Transform } from 'stronger-typed-streams';
 
 type TransformCallback = (error?: Error | null, price?: Price) => void;
 type PriceTransformer = (
@@ -48,7 +48,7 @@ const transform: PriceTransformer = (price, _, done) => {
   });
 };
 
-export const priceTransformer = new Transform({
+export const priceTransformer = new Transform<RemotePrice, Price>({
   objectMode: true,
   transform,
 });

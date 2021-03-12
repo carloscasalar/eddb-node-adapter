@@ -1,5 +1,5 @@
-import { Transform } from 'stream';
 import { Commodity, RemoteCommodity } from './schema';
+import { Transform } from 'stronger-typed-streams';
 
 type TransformerCallback = (error: Error | null, commodity: Commodity) => void;
 type CommodityTransformer = (
@@ -48,7 +48,7 @@ const transform: CommodityTransformer = (commodity, _, done) => {
   });
 };
 
-export const commodityTransformer = new Transform({
+export const commodityTransformer = new Transform<RemoteCommodity, Commodity>({
   objectMode: true,
   transform,
 });

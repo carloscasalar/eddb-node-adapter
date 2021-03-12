@@ -1,4 +1,4 @@
-import { Transform } from 'stream';
+import { Transform } from 'stronger-typed-streams';
 import { LandingPadSize, RemoteStation, Station } from './schema';
 import { SettlementSecurity, SettlementSize } from '../settlements/schema';
 
@@ -95,7 +95,7 @@ const transform: StationTransformer = (station, _, done) => {
   });
 };
 
-export const stationTransformer = new Transform({
+export const stationTransformer = new Transform<RemoteStation, Station>({
   objectMode: true,
   transform,
 });

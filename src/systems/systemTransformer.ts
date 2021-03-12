@@ -1,4 +1,4 @@
-import { Transform } from 'stream';
+import { Transform } from 'stronger-typed-streams';
 import { RemoteSystem, System } from './schema';
 
 type TransformCallback = (error?: Error | null, system?: System) => void;
@@ -90,7 +90,7 @@ const transform: SystemTransformer = (system, _, done) => {
   });
 };
 
-export const systemTransformer = new Transform({
+export const systemTransformer = new Transform<RemoteSystem, System>({
   objectMode: true,
   transform,
 });

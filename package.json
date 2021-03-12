@@ -2,8 +2,8 @@
   "name": "@carloscasalar/eddb-node-adapter",
   "version": "0.6.0-alpha-3",
   "description": "Node adapter for EDDB API",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -12,6 +12,7 @@
     "test": "jest --verbose",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
+    "postbuild": "cp package.json *.md LICENSE .npmignore dist",
     "example:commodities": "ts-node src/examples/commodities",
     "example:populatedSystems": "ts-node src/examples/populatedSystems",
     "example:prices": "ts-node src/examples/prices.ts",
@@ -36,17 +37,18 @@
   },
   "homepage": "https://github.com/carloscasalar/eddb-node-adapter#readme",
   "dependencies": {
-    "camelcase-keys-recursive": "^1.0.0",
-    "csv-streamify": "^4.0.0",
-    "JSONStream": "^1.3.5",
-    "request": "^2.88.0"
-  },
-  "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
     "@types/request": "^2.48.5",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
+    "JSONStream": "^1.3.5",
+    "camelcase-keys-recursive": "^1.0.0",
+    "csv-streamify": "^4.0.0",
+    "request": "^2.88.0",
+    "stronger-typed-streams": "^0.2.0"
+  },
+  "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",

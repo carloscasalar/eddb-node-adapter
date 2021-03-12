@@ -1,4 +1,4 @@
-import { PopulatedSystemsLoader } from '../systems/PopulatedSystemsLoader';
+import { PopulatedSystemsLoader } from '..';
 import { System } from '../systems/schema';
 
 const populatedSystemsLoader = new PopulatedSystemsLoader();
