@@ -1,6 +1,6 @@
 {
   "name": "@carloscasalar/eddb-node-adapter",
-  "version": "0.6.0-alpha-3",
+  "version": "0.6.0-alpha-6",
   "description": "Node adapter for EDDB API",
   "main": "index.js",
   "types": "index.d.ts",

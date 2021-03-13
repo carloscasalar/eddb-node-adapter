@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.6.0-alpha-3 2021-03-07
+## v0.6.0-alpha-6 2021-03-14
   * Add module definition files and type support
 
 ## v0.5.0 2021-02-28
