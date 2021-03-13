@@ -8,10 +8,11 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build": "tsc",
     "test": "jest --verbose",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
+    "tsc:check": "tsc --noEmit",
+    "build": "tsc",
     "postbuild": "cp package.json *.md LICENSE .npmignore dist",
     "example:commodities": "ts-node src/examples/commodities",
     "example:populatedSystems": "ts-node src/examples/populatedSystems",
