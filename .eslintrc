@@ -21,7 +21,6 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "semi": ["error", "always"],
-    "indent": ["error", 2],
     "no-extra-semi": ["error"],
     "class-methods-use-this": ["off"],
     "comma-dangle": ["error", "always-multiline"],

@@ -11,11 +11,11 @@ export type SaveIncomingChunkFn<DataType> = (data: DataType) => void;
 export const newDummyWriteStream = <DataType>(
   saveIncomingChunkFn: SaveIncomingChunkFn<DataType>,
 ): Writable =>
-    new Writable({
-      objectMode: true,
-      write(data: DataType) {
-        if (saveIncomingChunkFn) saveIncomingChunkFn(data);
+  new Writable({
+    objectMode: true,
+    write(data: DataType) {
+      if (saveIncomingChunkFn) saveIncomingChunkFn(data);
 
-        this.emit('end');
-      },
-    });
+      this.emit('end');
+    },
+  });
