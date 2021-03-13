@@ -1,11 +1,12 @@
-const { newDummyReadStream, newDummyWriteStream } = require('../test/dummyStreams');
+import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
+import { Price } from 'prices/schema';
 
-const priceTransformer = require('./priceTransformer');
+import { priceTransformer } from './priceTransformer';
 
 describe('priceTransformer tests', () => {
-  test('should transform underscore attributes into camelcase ones', (done) => {
-    // eslint-disable-next-line
-    let transformedPrice = {};
+  // eslint-disable-next-line jest/no-done-callback
+  it('should transform underscore attributes into camelcase ones', (done) => {
+    let transformedPrice: Price;
 
     const readStream = newDummyReadStream();
     readStream.push({
@@ -22,11 +23,11 @@ describe('priceTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream((data) => transformedPrice = data);
+    const writeStream = newDummyWriteStream<Price>(
+      (data) => (transformedPrice = data),
+    );
 
-    const fullStream = readStream
-      .pipe(priceTransformer)
-      .pipe(writeStream);
+    const fullStream = readStream.pipe(priceTransformer).pipe(writeStream);
 
     fullStream.on('end', () => {
       expect(transformedPrice).toEqual({
@@ -44,7 +45,6 @@ describe('priceTransformer tests', () => {
       done();
     });
 
-    fullStream.on('error', (err) => done(err));
-
+    fullStream.on('error', (err: Error) => done(err));
   });
 });

@@ -1,5 +1,6 @@
 # IDE
 .idea
+.DS_store
 
 # Logs
 logs
@@ -62,3 +63,5 @@ typings/
 
 # next.js build output
 .next
+
+dist

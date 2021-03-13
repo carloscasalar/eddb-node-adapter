@@ -1,6 +1,8 @@
-const { newDummyReadStream, newDummyWriteStream } = require('../test/dummyStreams');
+/* eslint-disable jest/no-done-callback */
+import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
 
-const systemTransformer = require('./systemTransformer');
+import { systemTransformer } from './systemTransformer';
+import { System } from './schema';
 
 describe('systemTransformer tests', () => {
   test('should transform underscore attributes into camelcase ones', (done) => {
@@ -36,21 +38,24 @@ describe('systemTransformer tests', () => {
       controlling_minor_faction: 'Independent Detention Foundation',
       reserve_type_id: 3,
       reserve_type: 'Common',
-      minor_faction_presences: [{ minor_faction_id: 75876,
-        happiness_id: 1,
-        influence: 0,
-        active_states: [{ id: 67, name: 'Expansion' }],
-        pending_states: [{ id: 67, name: 'Expansion' }],
-        recovering_states: [{ id: 67, name: 'Expansion' }],
-      }],
+      minor_faction_presences: [
+        {
+          minor_faction_id: 75876,
+          happiness_id: 1,
+          influence: 0,
+          active_states: [{ id: 67, name: 'Expansion' }],
+          pending_states: [{ id: 67, name: 'Expansion' }],
+          recovering_states: [{ id: 67, name: 'Expansion' }],
+        },
+      ],
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream((data) => transformedSystem = data);
+    const writeStream = newDummyWriteStream<System>(
+      (data) => (transformedSystem = data),
+    );
 
-    const fullStream = readStream
-      .pipe(systemTransformer)
-      .pipe(writeStream);
+    const fullStream = readStream.pipe(systemTransformer).pipe(writeStream);
 
     fullStream.on('end', () => {
       expect(transformedSystem).toEqual({
@@ -81,19 +86,20 @@ describe('systemTransformer tests', () => {
         controllingMinorFaction: 'Independent Detention Foundation',
         reserveTypeId: 3,
         reserveType: 'Common',
-        minorFactionPresences:
-          [ { minorFactionId: 75876,
+        minorFactionPresences: [
+          {
+            minorFactionId: 75876,
             happinessId: 1,
             influence: 0,
             activeStates: [{ id: 67, name: 'Expansion' }],
             pendingStates: [{ id: 67, name: 'Expansion' }],
             recoveringStates: [{ id: 67, name: 'Expansion' }],
-          } ],
+          },
+        ],
       });
       done();
     });
 
     fullStream.on('error', (err) => done(err));
-
   });
 });

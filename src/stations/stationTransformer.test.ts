@@ -1,6 +1,8 @@
-const { newDummyReadStream, newDummyWriteStream } = require('../test/dummyStreams');
+/* eslint-disable jest/no-done-callback */
+import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
 
-const stationTransformer = require('./stationTransformer');
+import { stationTransformer } from './stationTransformer';
+import { Commodity } from '../commodities/schema';
 
 describe('stationTransformer tests', () => {
   test('should transform underscore attributes into camelcase ones', (done) => {
@@ -30,22 +32,23 @@ describe('stationTransformer tests', () => {
       has_shipyard: false,
       has_docking: true,
       has_commodities: true,
-      import_commodities: [ 'Polymers', 'Aluminium', 'H.E. Suits' ],
-      export_commodities: [ 'Hydrogen Fuel', 'Slaves', 'Scrap' ],
-      prohibited_commodities:
-        [ 'Narcotics',
-          'Combat Stabilisers',
-          'Slaves',
-          'Battle Weapons',
-          'Toxic Waste',
-          'Thargoid Scout Tissue Sample' ],
-      economies: [ 'Extraction', 'Industrial' ],
+      import_commodities: ['Polymers', 'Aluminium', 'H.E. Suits'],
+      export_commodities: ['Hydrogen Fuel', 'Slaves', 'Scrap'],
+      prohibited_commodities: [
+        'Narcotics',
+        'Combat Stabilisers',
+        'Slaves',
+        'Battle Weapons',
+        'Toxic Waste',
+        'Thargoid Scout Tissue Sample',
+      ],
+      economies: ['Extraction', 'Industrial'],
       shipyard_updated_at: 1534561638,
       outfitting_updated_at: 1502974010,
       market_updated_at: 1502974310,
       is_planetary: false,
       selling_ships: [155],
-      selling_modules: [ 738,739,740],
+      selling_modules: [738, 739, 740],
       settlement_size_id: 64,
       settlement_size: '+++',
       settlement_security_id: 1,
@@ -55,11 +58,11 @@ describe('stationTransformer tests', () => {
     });
     readStream.push(null);
 
-    const writeStream = newDummyWriteStream((data) => transformedCommodity = data);
+    const writeStream = newDummyWriteStream<Commodity>(
+      (data) => (transformedCommodity = data),
+    );
 
-    const fullStream = readStream
-      .pipe(stationTransformer)
-      .pipe(writeStream);
+    const fullStream = readStream.pipe(stationTransformer).pipe(writeStream);
 
     fullStream.on('end', () => {
       expect(transformedCommodity).toEqual({
@@ -85,22 +88,23 @@ describe('stationTransformer tests', () => {
         hasShipyard: false,
         hasDocking: true,
         hasCommodities: true,
-        importCommodities: [ 'Polymers', 'Aluminium', 'H.E. Suits' ],
-        exportCommodities: [ 'Hydrogen Fuel', 'Slaves', 'Scrap' ],
-        prohibitedCommodities:
-          [ 'Narcotics',
-            'Combat Stabilisers',
-            'Slaves',
-            'Battle Weapons',
-            'Toxic Waste',
-            'Thargoid Scout Tissue Sample' ],
-        economies: [ 'Extraction', 'Industrial' ],
+        importCommodities: ['Polymers', 'Aluminium', 'H.E. Suits'],
+        exportCommodities: ['Hydrogen Fuel', 'Slaves', 'Scrap'],
+        prohibitedCommodities: [
+          'Narcotics',
+          'Combat Stabilisers',
+          'Slaves',
+          'Battle Weapons',
+          'Toxic Waste',
+          'Thargoid Scout Tissue Sample',
+        ],
+        economies: ['Extraction', 'Industrial'],
         shipyardUpdatedAt: 1534561638,
         outfittingUpdatedAt: 1502974010,
         marketUpdatedAt: 1502974310,
         isPlanetary: false,
         sellingShips: [155],
-        sellingModules: [ 738,739,740],
+        sellingModules: [738, 739, 740],
         settlementSizeId: 64,
         settlementSize: '+++',
         settlementSecurityId: 1,
@@ -112,6 +116,5 @@ describe('stationTransformer tests', () => {
     });
 
     fullStream.on('error', (err) => done(err));
-
   });
 });
