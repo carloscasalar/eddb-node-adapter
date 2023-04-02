@@ -1,5 +1,5 @@
 import zlib from 'zlib'
-import request from 'request'
+import got from 'got'
 import JSONStream from 'JSONStream'
 
 import { commodityTransformer } from './commodityTransformer'
@@ -14,7 +14,7 @@ export class CommoditiesLoader {
     const unzipStream = zlib.createGunzip()
     const { url } = this
     const { headers } = defaultConfig
-    return request({ url, headers })
+    return got.stream(url, { headers, decompress: false })
       .pipe(unzipStream)
       .pipe(JSONStream.parse('*'))
       .pipe(commodityTransformer)
