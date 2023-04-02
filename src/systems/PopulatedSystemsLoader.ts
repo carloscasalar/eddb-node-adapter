@@ -1,7 +1,7 @@
 import zlib from 'zlib'
-import request from 'request'
+import got from 'got'
 import JSONStream from 'JSONStream'
-import defaultConfig from '../config/config.json'
+import defaultConfig from '../config/config.json' assert { type: 'json' }
 import { systemTransformer } from './systemTransformer'
 import { Readable } from 'stronger-typed-streams'
 import { System } from './schema'
@@ -13,7 +13,7 @@ export class PopulatedSystemsLoader {
     const unzipStream = zlib.createGunzip()
     const { url } = this
     const { headers } = defaultConfig
-    return request({ url, headers })
+    return got.stream(url, { headers, decompress: false })
       .pipe(unzipStream)
       .pipe(JSONStream.parse('*'))
       .pipe(systemTransformer)
