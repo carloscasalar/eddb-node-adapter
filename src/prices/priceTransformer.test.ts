@@ -1,14 +1,13 @@
-import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
-import { Price } from 'prices/schema';
+import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams'
+import { Price } from 'prices/schema'
 
-import { priceTransformer } from './priceTransformer';
+import { priceTransformer } from './priceTransformer'
 
 describe('priceTransformer tests', () => {
-  // eslint-disable-next-line jest/no-done-callback
   it('should transform underscore attributes into camelcase ones', (done) => {
-    let transformedPrice: Price;
+    let transformedPrice: Price
 
-    const readStream = newDummyReadStream();
+    const readStream = newDummyReadStream()
     readStream.push({
       id: '11120590',
       station_id: '63',
@@ -19,15 +18,15 @@ describe('priceTransformer tests', () => {
       sell_price: '8427',
       demand: '50',
       demand_bracket: '3',
-      collected_at: '1541874378',
-    });
-    readStream.push(null);
+      collected_at: '1541874378'
+    })
+    readStream.push(null)
 
     const writeStream = newDummyWriteStream<Price>(
-      (data) => (transformedPrice = data),
-    );
+      (data) => (transformedPrice = data)
+    )
 
-    const fullStream = readStream.pipe(priceTransformer).pipe(writeStream);
+    const fullStream = readStream.pipe(priceTransformer).pipe(writeStream)
 
     fullStream.on('end', () => {
       expect(transformedPrice).toEqual({
@@ -40,11 +39,11 @@ describe('priceTransformer tests', () => {
         sellPrice: 8427,
         demand: 50,
         demandBracket: 3,
-        collectedAt: 1541874378,
-      });
-      done();
-    });
+        collectedAt: 1541874378
+      })
+      done()
+    })
 
-    fullStream.on('error', (err: Error) => done(err));
-  });
-});
+    fullStream.on('error', (err: Error) => done(err))
+  })
+})

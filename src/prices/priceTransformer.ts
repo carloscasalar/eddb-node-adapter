@@ -1,5 +1,5 @@
-import { Price, RemotePrice } from 'prices/schema';
-import { Transform } from 'stronger-typed-streams';
+import { Price, RemotePrice } from 'prices/schema'
+import { Transform } from 'stronger-typed-streams'
 
 type TransformCallback = (error?: Error | null, price?: Price) => void;
 type PriceTransformer = (
@@ -20,18 +20,18 @@ const transform: PriceTransformer = (price, _, done) => {
     demand_bracket: demandBracketStr,
     collected_at: collectedAtStr,
     ...unexpectedAttributes
-  } = price;
+  } = price
 
-  const id = parseInt(idStr);
-  const stationId = parseInt(stationIdStr);
-  const commodityId = parseInt(commodityIdStr);
-  const supply = parseInt(supplyStr);
-  const supplyBracket = parseInt(supplyBracketStr);
-  const buyPrice = parseInt(buyPriceStr);
-  const sellPrice = parseInt(sellPriceStr);
-  const demand = parseInt(demandStr);
-  const demandBracket = parseInt(demandBracketStr);
-  const collectedAt = parseInt(collectedAtStr);
+  const id = parseInt(idStr)
+  const stationId = parseInt(stationIdStr)
+  const commodityId = parseInt(commodityIdStr)
+  const supply = parseInt(supplyStr)
+  const supplyBracket = parseInt(supplyBracketStr)
+  const buyPrice = parseInt(buyPriceStr)
+  const sellPrice = parseInt(sellPriceStr)
+  const demand = parseInt(demandStr)
+  const demandBracket = parseInt(demandBracketStr)
+  const collectedAt = parseInt(collectedAtStr)
 
   done(null, {
     id,
@@ -44,11 +44,11 @@ const transform: PriceTransformer = (price, _, done) => {
     demand,
     demandBracket,
     collectedAt,
-    ...unexpectedAttributes,
-  });
-};
+    ...unexpectedAttributes
+  })
+}
 
 export const priceTransformer = new Transform<RemotePrice, Price>({
   objectMode: true,
-  transform,
-});
+  transform
+})

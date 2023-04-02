@@ -1,14 +1,13 @@
-/* eslint-disable jest/no-done-callback */
-import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
+import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams'
 
-import { stationTransformer } from './stationTransformer';
-import { Commodity } from '../commodities/schema';
+import { stationTransformer } from './stationTransformer'
+import { Commodity } from '../commodities/schema'
 
 describe('stationTransformer tests', () => {
   test('should transform underscore attributes into camelcase ones', (done) => {
-    let transformedCommodity = {};
+    let transformedCommodity = {}
 
-    const readStream = newDummyReadStream();
+    const readStream = newDummyReadStream()
     readStream.push({
       id: 35580,
       name: 'Cherry Hub',
@@ -40,7 +39,7 @@ describe('stationTransformer tests', () => {
         'Slaves',
         'Battle Weapons',
         'Toxic Waste',
-        'Thargoid Scout Tissue Sample',
+        'Thargoid Scout Tissue Sample'
       ],
       economies: ['Extraction', 'Industrial'],
       shipyard_updated_at: 1534561638,
@@ -54,15 +53,15 @@ describe('stationTransformer tests', () => {
       settlement_security_id: 1,
       settlement_security: 'Low',
       body_id: 1502417,
-      controlling_minor_faction_id: 55468,
-    });
-    readStream.push(null);
+      controlling_minor_faction_id: 55468
+    })
+    readStream.push(null)
 
     const writeStream = newDummyWriteStream<Commodity>(
-      (data) => (transformedCommodity = data),
-    );
+      (data) => (transformedCommodity = data)
+    )
 
-    const fullStream = readStream.pipe(stationTransformer).pipe(writeStream);
+    const fullStream = readStream.pipe(stationTransformer).pipe(writeStream)
 
     fullStream.on('end', () => {
       expect(transformedCommodity).toEqual({
@@ -96,7 +95,7 @@ describe('stationTransformer tests', () => {
           'Slaves',
           'Battle Weapons',
           'Toxic Waste',
-          'Thargoid Scout Tissue Sample',
+          'Thargoid Scout Tissue Sample'
         ],
         economies: ['Extraction', 'Industrial'],
         shipyardUpdatedAt: 1534561638,
@@ -110,11 +109,11 @@ describe('stationTransformer tests', () => {
         settlementSecurityId: 1,
         settlementSecurity: 'Low',
         bodyId: 1502417,
-        controllingMinorFactionId: 55468,
-      });
-      done();
-    });
+        controllingMinorFactionId: 55468
+      })
+      done()
+    })
 
-    fullStream.on('error', (err) => done(err));
-  });
-});
+    fullStream.on('error', (err) => done(err))
+  })
+})

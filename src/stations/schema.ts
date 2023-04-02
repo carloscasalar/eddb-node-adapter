@@ -1,6 +1,6 @@
-import { SettlementSecurity, SettlementSize } from '../settlements/schema';
+import { SettlementSecurity, SettlementSize } from '../settlements/schema'
 
-//TODO find all distinct pad sizes
+// TODO find all distinct pad sizes
 export type LandingPadSize = 'M';
 
 export interface Station {

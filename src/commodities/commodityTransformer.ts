@@ -1,5 +1,5 @@
-import { Commodity, RemoteCommodity } from './schema';
-import { Transform } from 'stronger-typed-streams';
+import { Commodity, RemoteCommodity } from './schema'
+import { Transform } from 'stronger-typed-streams'
 
 type TransformerCallback = (error: Error | null, commodity: Commodity) => void;
 type CommodityTransformer = (
@@ -13,6 +13,7 @@ const transform: CommodityTransformer = (commodity, _, done) => {
     name,
     category_id: categoryIdStr,
     average_price: averagePrice,
+    // eslint-disable-next-line camelcase
     is_rare,
     max_buy_price: maxBuyPrice,
     max_sell_price: maxSellPrice,
@@ -20,15 +21,18 @@ const transform: CommodityTransformer = (commodity, _, done) => {
     min_sell_price: minSellPrice,
     buy_price_lower_average: buyPriceLowerAverage,
     sell_price_upper_average: sellPriceUpperAverage,
+    // eslint-disable-next-line camelcase
     is_non_marketable,
     ed_id: edId,
-    category,
-  } = commodity;
+    category
+  } = commodity
 
-  const id = parseInt(idStr);
-  const categoryId = parseInt(categoryIdStr);
-  const isRare = is_rare === 1;
-  const isNonMarketable = is_non_marketable === 1;
+  const id = parseInt(idStr)
+  const categoryId = parseInt(categoryIdStr)
+  // eslint-disable-next-line camelcase
+  const isRare = is_rare === 1
+  // eslint-disable-next-line camelcase
+  const isNonMarketable = is_non_marketable === 1
 
   done(null, {
     id,
@@ -44,11 +48,11 @@ const transform: CommodityTransformer = (commodity, _, done) => {
     sellPriceUpperAverage,
     isNonMarketable,
     edId,
-    category,
-  });
-};
+    category
+  })
+}
 
 export const commodityTransformer = new Transform<RemoteCommodity, Commodity>({
   objectMode: true,
-  transform,
-});
+  transform
+})

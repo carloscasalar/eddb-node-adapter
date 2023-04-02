@@ -1,15 +1,14 @@
-/* eslint-disable jest/no-done-callback */
-import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams';
+import { newDummyReadStream, newDummyWriteStream } from '../test/dummyStreams'
 
-import { systemTransformer } from './systemTransformer';
-import { System } from './schema';
+import { systemTransformer } from './systemTransformer'
+import { System } from './schema'
 
 describe('systemTransformer tests', () => {
   test('should transform underscore attributes into camelcase ones', (done) => {
     // eslint-disable-next-line
     let transformedSystem = {};
 
-    const readStream = newDummyReadStream();
+    const readStream = newDummyReadStream()
     readStream.push({
       id: 17797994,
       edsm_id: 22972695,
@@ -45,17 +44,17 @@ describe('systemTransformer tests', () => {
           influence: 0,
           active_states: [{ id: 67, name: 'Expansion' }],
           pending_states: [{ id: 67, name: 'Expansion' }],
-          recovering_states: [{ id: 67, name: 'Expansion' }],
-        },
-      ],
-    });
-    readStream.push(null);
+          recovering_states: [{ id: 67, name: 'Expansion' }]
+        }
+      ]
+    })
+    readStream.push(null)
 
     const writeStream = newDummyWriteStream<System>(
-      (data) => (transformedSystem = data),
-    );
+      (data) => (transformedSystem = data)
+    )
 
-    const fullStream = readStream.pipe(systemTransformer).pipe(writeStream);
+    const fullStream = readStream.pipe(systemTransformer).pipe(writeStream)
 
     fullStream.on('end', () => {
       expect(transformedSystem).toEqual({
@@ -93,13 +92,13 @@ describe('systemTransformer tests', () => {
             influence: 0,
             activeStates: [{ id: 67, name: 'Expansion' }],
             pendingStates: [{ id: 67, name: 'Expansion' }],
-            recoveringStates: [{ id: 67, name: 'Expansion' }],
-          },
-        ],
-      });
-      done();
-    });
+            recoveringStates: [{ id: 67, name: 'Expansion' }]
+          }
+        ]
+      })
+      done()
+    })
 
-    fullStream.on('error', (err) => done(err));
-  });
-});
+    fullStream.on('error', (err) => done(err))
+  })
+})

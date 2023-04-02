@@ -1,6 +1,6 @@
-import { Transform } from 'stronger-typed-streams';
-import { LandingPadSize, RemoteStation, Station } from './schema';
-import { SettlementSecurity, SettlementSize } from '../settlements/schema';
+import { Transform } from 'stronger-typed-streams'
+import { LandingPadSize, RemoteStation, Station } from './schema'
+import { SettlementSecurity, SettlementSize } from '../settlements/schema'
 
 type TransformCallback = (error?: Error | null, station?: Station) => void;
 type StationTransformer = (
@@ -50,7 +50,7 @@ const transform: StationTransformer = (station, _, done) => {
     body_id: bodyId,
     controlling_minor_faction_id: controllingMinorFactionId,
     ...unexpectedAttributes
-  } = station;
+  } = station
 
   done(null, {
     id,
@@ -91,11 +91,11 @@ const transform: StationTransformer = (station, _, done) => {
     settlementSecurity: settlementSecurity as SettlementSecurity,
     bodyId,
     controllingMinorFactionId,
-    ...unexpectedAttributes,
-  });
-};
+    ...unexpectedAttributes
+  })
+}
 
 export const stationTransformer = new Transform<RemoteStation, Station>({
   objectMode: true,
-  transform,
-});
+  transform
+})

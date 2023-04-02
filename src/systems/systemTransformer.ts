@@ -1,5 +1,5 @@
-import { Transform } from 'stronger-typed-streams';
-import { RemoteSystem, System } from './schema';
+import { Transform } from 'stronger-typed-streams'
+import { RemoteSystem, System } from './schema'
 
 type TransformCallback = (error?: Error | null, system?: System) => void;
 type SystemTransformer = (
@@ -37,9 +37,11 @@ const transform: SystemTransformer = (system, _, done) => {
     controlling_minor_faction: controllingMinorFaction,
     reserve_type_id: reserveTypeId,
     reserve_type: reserveType,
-    minor_faction_presences,
-  } = system;
+    // eslint-disable-next-line camelcase
+    minor_faction_presences
+  } = system
 
+  // eslint-disable-next-line camelcase
   const minorFactionPresences = minor_faction_presences.map(
     ({
       minor_faction_id: minorFactionId,
@@ -47,16 +49,16 @@ const transform: SystemTransformer = (system, _, done) => {
       influence,
       active_states: activeStates,
       pending_states: pendingStates,
-      recovering_states: recoveringStates,
+      recovering_states: recoveringStates
     }) => ({
       minorFactionId,
       happinessId,
       influence,
       activeStates,
       pendingStates,
-      recoveringStates,
-    }),
-  );
+      recoveringStates
+    })
+  )
 
   done(null, {
     id,
@@ -86,11 +88,11 @@ const transform: SystemTransformer = (system, _, done) => {
     controllingMinorFaction,
     reserveTypeId,
     reserveType,
-    minorFactionPresences,
-  });
-};
+    minorFactionPresences
+  })
+}
 
 export const systemTransformer = new Transform<RemoteSystem, System>({
   objectMode: true,
-  transform,
-});
+  transform
+})
