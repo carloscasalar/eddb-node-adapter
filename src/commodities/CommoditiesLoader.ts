@@ -3,7 +3,7 @@ import request from 'request'
 import JSONStream from 'JSONStream'
 
 import { commodityTransformer } from './commodityTransformer'
-import defaultConfig from '../config/config.json'
+import defaultConfig from '../config/config.json' assert { type: 'json' }
 import { Readable } from 'stronger-typed-streams'
 import { Commodity } from './schema'
 

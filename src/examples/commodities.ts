@@ -1,4 +1,4 @@
-import { CommoditiesLoader } from '..'
+import { CommoditiesLoader } from '../commodities/CommoditiesLoader'
 
 const commoditiesLoader = new CommoditiesLoader()
 

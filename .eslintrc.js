@@ -17,6 +17,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-      "no-useless-constructor": 'off'
+      "no-useless-constructor": 1
     }
 };

@@ -2,7 +2,7 @@ import zlib from 'zlib'
 import request from 'request'
 import csv from 'csv-streamify'
 
-import defaultConfig from '../config/config.json'
+import defaultConfig from '../config/config.json' assert { type: 'json' }
 import { priceTransformer } from './priceTransformer'
 import { Readable } from 'stronger-typed-streams'
 import { Price } from './schema'

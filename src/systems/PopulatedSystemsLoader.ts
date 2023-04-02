@@ -1,7 +1,7 @@
 import zlib from 'zlib'
 import request from 'request'
 import JSONStream from 'JSONStream'
-import defaultConfig from '../config/config.json'
+import defaultConfig from '../config/config.json' assert { type: 'json' }
 import { systemTransformer } from './systemTransformer'
 import { Readable } from 'stronger-typed-streams'
 import { System } from './schema'

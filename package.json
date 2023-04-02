@@ -4,6 +4,7 @@
   "description": "Node adapter for EDDB API",
   "main": "index.js",
   "types": "index.d.ts",
+  "type": "module",
   "engines": {
     "node": ">=12.0.0"
   },
@@ -14,10 +15,10 @@
     "tsc:check": "tsc --noEmit",
     "build": "tsc",
     "postbuild": "cp package.json *.md LICENSE .npmignore dist",
-    "example:commodities": "ts-node src/examples/commodities",
-    "example:populatedSystems": "ts-node src/examples/populatedSystems",
-    "example:prices": "ts-node src/examples/prices.ts",
-    "example:stations": "ts-node src/examples/stations"
+    "example:commodities": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/examples/commodities.ts",
+    "example:populatedSystems": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/examples/populatedSystems",
+    "example:prices": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/examples/prices.ts",
+    "example:stations": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/examples/stations"
   },
   "repository": {
     "type": "git",
