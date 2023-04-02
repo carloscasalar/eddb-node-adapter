@@ -1,7 +1,8 @@
 # CHANGELOG
 
 ## v0.7.0 2023-04-??
-  * Supported node versions >= 14.x
+  * Supported node versions >= 18.x
+  * Replaced `request` lib dependency with `got`.
 
 ## v0.6.0 2021-03-13
   * Add module definition files and typescript support

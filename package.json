@@ -1,12 +1,12 @@
 {
   "name": "@carloscasalar/eddb-node-adapter",
-  "version": "0.6.0",
+  "version": "0.7.0-snapshot",
   "description": "Node adapter for EDDB API",
   "main": "index.js",
   "types": "index.d.ts",
   "type": "module",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "test": "jest --verbose",
@@ -46,7 +46,6 @@
     "csv-streamify": "4.0.0",
     "got": "12.6.0",
     "JSONStream": "1.3.5",
-    "request": "2.88.0",
     "stronger-typed-streams": "0.2.0"
   },
   "devDependencies": {
