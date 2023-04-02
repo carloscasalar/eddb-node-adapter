@@ -1,6 +1,6 @@
 import zlib from 'zlib'
-import request from 'request'
 import csv from 'csv-streamify'
+import got from 'got'
 
 import defaultConfig from '../config/config.json' assert { type: 'json' }
 import { priceTransformer } from './priceTransformer'
@@ -16,7 +16,7 @@ export class PricesLoader {
     const { headers } = defaultConfig
     const csvStreamer = csv({ columns: true })
 
-    return request({ url, headers })
+    return got.stream(url, { headers, decompress: false })
       .pipe(unzipStream)
       .pipe(csvStreamer)
       .pipe(priceTransformer)
